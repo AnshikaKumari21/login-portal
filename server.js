@@ -9,7 +9,6 @@ const profileRoutes = require('./routes/users');       // profile routes
 const dashboardRoutes = require('./routes/dashboard'); // dashboard routes
 
 const app = express();
-const PORT = 8080;
 
 // --- Connect to MongoDB ---
 connectDB();
@@ -51,6 +50,8 @@ app.use('/', dashboardRoutes);   // dashboard + edit/update/delete
 app.use((req, res) => res.status(404).send('404 Not Found'));
 
 // --- Start server ---
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running at port ${PORT}`);
 });
