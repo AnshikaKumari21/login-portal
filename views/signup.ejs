@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up – Club Portal</title>
+  <link rel="stylesheet" href="/public/css/styles.css" />
+  <style>
+    /* Video background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+
+    /* Container styling */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+      margin-top: 14px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .alert {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #7c2d12;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="/public/videos/space.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <h1>Create an Account</h1>
+
+    <% if (message) { %>
+      <div class="alert"><%= message %></div>
+    <% } %>
+
+    <form method="POST" action="/signup">
+      <label>Name</label>
+      <input type="text" name="name" required />
+
+      <label>Email</label>
+      <input type="email" name="email" required />
+
+      <label>Password</label>
+      <input type="password" name="password" required />
+
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="/">Login</a></p>
+  </div>
+</body>
+</html>

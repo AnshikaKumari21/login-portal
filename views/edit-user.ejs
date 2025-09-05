@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile – Club Portal</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="/public/videos/space.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+  <h1>Edit Profile</h1>
+
+  <% if (message) { %>
+    <div class="alert"><%= message %></div>
+  <% } %>
+
+  <form method="POST" action="/update/<%= user._id %>">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= user.name %>" required>
+
+    <label>Branch</label>
+    <input type="text" name="branch" value="<%= user.profile?.branch || '' %>" required>
+
+    <label>Year</label>
+    <input type="text" name="year" value="<%= user.profile?.year || '' %>" required>
+
+    <label>Phone</label>
+    <input type="text" name="phone" value="<%= user.profile?.phone || '' %>">
+
+    <label>Address</label>
+    <input type="text" name="address" value="<%= user.profile?.address || '' %>">
+
+    <button type="submit">Update Profile</button>
+  </form>
+</div>
+
+</body>
+</html>
