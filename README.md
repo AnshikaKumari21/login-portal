@@ -2,6 +2,10 @@
 
 A **web application** built with **Node.js, Express, MongoDB, and EJS** that allows users to **signup, login, manage their profile**, and view a **dashboard of all users**.  
 
+## 🚀 Live Demo
+
+🔗 [View Live](https://login-portal-production.up.railway.app/)
+
 ## Features
 
 - **User Authentication**: Signup and login with session-based authentication.  
